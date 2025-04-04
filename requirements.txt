@@ -1,0 +1,7 @@
+pandas
+numpy 
+seaborn
+-e .
+
+# Whenever i am trying to run requiremnts.txt at that time setup.py must also run to build the packages
+# Therefore we write -e . as it'll trigger setup.py file 
