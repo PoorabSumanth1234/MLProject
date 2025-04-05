@@ -21,4 +21,5 @@ logging.basicConfig(
 
 
 
-## Whenever we get an exception i'll take that exception and log it with the logger file and logging.info and put it inside the file
+## Whenever we get an exception i'll take that exception and log it with the logger
+# file and logging.info and put it inside the file

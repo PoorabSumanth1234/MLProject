@@ -1,5 +1,6 @@
 import sys 
 import logging 
+from src.logger import logging 
 # Any exception that is getting controlled , the sys library is having that information
 
 def error_message_details(error,error_detail:sys): # error detail present in sys i.e what module has been imported 
@@ -17,11 +18,19 @@ class CustomException(Exception):
         super().__init__(error_message) # overridden init method 
         self.error_message=error_message_details(error_message,error_detail=error_detail)
         # Whenever I raise my custom exception , it will inherit the parent exception. 
-        # Whatever error msg is coming from error_message_details function that error message will come over and initialie the class variable  or the custom exception variable i.e error msg 
+        # Whatever error msg is coming from error_message_details function that error message will 
+        # come over and initialie the class variable  or the custom exception variable i.e error msg 
         # error_detail is tracked by sys 
         
     def __str__(self):
         return self.error_message
+    
+    #if __name__=="__main__":
+     #   try:
+         #   a=1/0
+        #except Exception as e:
+            #logging.info("Divide by zero ")
+            #raise CustomException(e,sys)
     
     
     
