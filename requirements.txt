@@ -3,7 +3,8 @@ numpy
 seaborn
 matplotlib
 scikit-learn
-catboost 
+catboost
+dill 
 -e .
 
 # Whenever i am trying to run requiremnts.txt at that time setup.py must also run to build the packages
