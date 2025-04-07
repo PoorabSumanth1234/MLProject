@@ -15,8 +15,8 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass   # used to create class variables 
 from src.components.data_transformation import DataTransformation
-from src.components.data_transformation import DataTransformationConfig
-from src.components.model_training import ModelTrainerConfig
+#from src.components.data_transformation import DataTransformationConfig
+#from src.components.model_training import ModelTrainerConfig
 from src.components.model_training import ModelTrainer
 @dataclass    # using dataclass ,we will able to directly define our class variable 
 class DataIngestionConfig(): # in my data ingestion component any input that is required , I will give through data ingestion config
@@ -48,22 +48,15 @@ class DataIngestion:
         
         except Exception as e:
             raise CustomException(e,sys) 
-#if __name__=="__main__":
- #
- # train_data,test_data=obj.initiate_data_ingestion()
-   # data_transformation=DataTransformation()
-    #train_array,test_array=data_transformation.initiate_data_transformation(train_data,test_data)
-    #modeltrainer=ModelTrainer()
-    #print(modeltrainer.initiate_model_trainer(train_array,test_array)) 
-if __name__ == "__main__":
-    obj = DataIngestion()
-    train_data, test_data = obj.initiate_data_ingestion()
+if __name__=="__main__":
+    obj=DataIngestion()
+    train_data,test_data=obj.initiate_data_ingestion()
 
-    data_transformation = DataTransformation()
-    data_transformation.initiate_data_transformation(train_data, test_data)
+    data_transformation=DataTransformation()
+    train_arr,test_arr,_=data_transformation.initiate_data_transformation(train_data,test_data)
 
-    #modeltrainer = ModelTrainer()
-    #print(f"Test R-squared score: {modeltrainer.initiate_model_trainer(train_array, test_array)}")
+    model_trainer=ModelTrainer()
+    print(model_trainer.initiate_model_trainer(train_arr,test_arr))
         
 ## We can change the code and read from mongodb or mysql        
         
